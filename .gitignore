@@ -1,1 +1,4 @@
 .copilot-context
+.venv/
+
+__pycache__/
