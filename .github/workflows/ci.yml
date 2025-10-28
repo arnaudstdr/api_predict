@@ -1,48 +1,48 @@
 name: CI
 
 on:
-    push:
-    pull_request:
+  push:
+  pull_request:
 
 jobs:
-    test-lint-build:
-        runs-on: ubuntu-latest
+  test-lint-build:
+    runs-on: ubuntu-latest
 
-        steps:
-            # Récupération du code
-            - name: Checkout repository
-            uses: actions/checkout@v4
+    steps:
+      # Récupération du code
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-            # Configuration de Python
-            - name: Set up Python 3.11
-            uses: actions/setup-python@v5
-            with:
-                python-version: "3.11"
+      # Configuration de Python
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-            # Installation des dépendances
-            - name: Install dependencies
-            run: |
-                pip install - r requirements.txt
-            
-            # Vérification de la qualité du code
-            - name: Lint with ruff
-            run: ruff check .
+      # Installation des dépendances
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
 
-            - name: Check format with black
-            run: black --check .
+      # Vérification de la qualité du code
+      - name: Lint with ruff
+        run: ruff check .
 
-            # Exécution des tests unitaires
-            - name: Run tests with pytest
-            run: pytest -v
+      - name: Check format with black
+        run: black --check .
 
-            # Préparation du build Docker
-            - name: Set up Docker Buildx
-            uses: docker/setup-buildx-action@v3
+      # Exécution des tests unitaires
+      - name: Run tests with pytest
+        run: pytest -v
 
-            # Construction de l'image ARM64
-            - name: Build Docker image (ARM64)
-            run : |
-                docker buildx build \
-                    --platform linux/arm64 \ 
-                    -t api_predict:test \
-                    -f Dockerfile .
+      # Préparation du build Docker
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Construction de l'image ARM64
+      - name: Build Docker image (ARM64)
+        run: |
+          docker buildx build \
+            --platform linux/arm64 \
+            -t api_predict:test \
+            -f Dockerfile .
