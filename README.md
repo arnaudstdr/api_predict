@@ -72,5 +72,10 @@ api_predict/
 
 ---
 
+## Qualité du code
+Ce projet utilise :
+- **Ruff** pour le linting (`ruff check .`)
+- **Black** pour le formatage (`black .`)
+
 ## ✅ Prochaine étape
 Mettre en place les tests unitaires et la CI/CD pour automatiser les builds et vérifier le bon fonctionnement de l’API à chaque modification.

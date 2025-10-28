@@ -1,3 +1,7 @@
+black
 fastapi
+httpx
 pydantic
+pytest
+ruff
 uvicorn
