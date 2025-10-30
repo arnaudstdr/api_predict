@@ -1,7 +1,6 @@
 # 🧠 API Predict
 
-Mini API FastAPI servant de base au projet **8 semaines pour maîtriser le déploiement IA**.  
-Cette première étape illustre comment transformer un modèle Python simple en service web conteneurisé.
+Mini API FastAPI servant de base qui illustre comment transformer un modèle Python simple en service web conteneurisé.
 
 ---
 
