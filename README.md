@@ -76,5 +76,20 @@ Ce projet utilise :
 - **Ruff** pour le linting (`ruff check .`)
 - **Black** pour le formatage (`black .`)
 
+## 🚀 CI/CD
+
+Le projet utilise GitHub Actions pour :
+- ✅ Vérification de la qualité du code (Ruff + Black)
+- ✅ Exécution des tests unitaires (pytest)
+- ✅ Construction de l'image Docker (ARM64)
+
+Le workflow se déclenche automatiquement sur chaque push et pull request.
+
+---
+
 ## ✅ Prochaine étape
-Mettre en place les tests unitaires et la CI/CD pour automatiser les builds et vérifier le bon fonctionnement de l’API à chaque modification.
+
+Intégrer le tracking et monitoring avec **MLflow** pour :
+- Suivre les métriques et paramètres du modèle
+- Gérer les versions des modèles
+- Monitorer les performances en production
