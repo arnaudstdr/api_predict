@@ -87,9 +87,37 @@ Le workflow se déclenche automatiquement sur chaque push et pull request.
 
 ---
 
-## ✅ Prochaine étape
+## Tracking et monitoring avec MLflow
 
-Intégrer le tracking et monitoring avec **MLflow** pour :
-- Suivre les métriques et paramètres du modèle
-- Gérer les versions des modèles
-- Monitorer les performances en production
+Le projet utilise **MLflow** pour suivre les paramètres et résultats de chaque prédiction.  
+Chaque requête sur `/predict` crée un *run* MLflow, enregistrant :
+- les paramètres (`coef`, `bias`, `x`)
+- les métriques (`output_y`)
+- les horodatages d’exécution
+
+Pour visualiser les runs :
+```bash
+mlflow ui
+```
+**Puis ouvre http://127.0.0.1:5000**
+
+---
+
+## Interface Streamlit (Dashboad local)
+Une interface Streamlit est disponible pour afficher les runs MLflow sans lancer l'UI par défaut :
+```bash
+streamlit run app/mlflow_ui.py
+```
+Elle affiche :
+- la liste des expériences MLflow
+- les paramètres eet métriques loggés
+- une visualisation dynamique des prédictions
+
+---
+
+## Prochaine étape
+
+Mettre en place la détection de **data drift** et la validation du modèle avec **Evidently** pour :
+- comparer les distributions entre jeux de données d’entraînement et de production
+- générer un rapport HTML automatisé dans `/reports/`
+- suivre la dérive des données dans le temps
