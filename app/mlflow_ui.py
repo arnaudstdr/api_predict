@@ -22,7 +22,18 @@ if selected_exp:
         st.warning("Aucun run enregistré pour cette expérience.")
     else:
         st.subheader(f"Résultats - {selected_exp}")
-        st.dataframe(runs_df[["run_id", "params.coef", "params.bias", "metrics.input_x", "metrics.output_y", "start_time"]])
+        st.dataframe(
+            runs_df[
+                [
+                    "run_id",
+                    "params.coef",
+                    "params.bias",
+                    "metrics.input_x",
+                    "metrics.output_y",
+                    "start_time",
+                ]
+            ]
+        )
 
         # Visualisation simple
         st.line_chart(
