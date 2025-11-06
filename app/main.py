@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+
 from app.train_and_log import train_and_log
 
 app = FastAPI()
