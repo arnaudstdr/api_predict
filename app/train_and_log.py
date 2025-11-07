@@ -1,6 +1,5 @@
 import mlflow
 
-
 def train_and_log(x: float):
     # Démarre un run MLflow
     with mlflow.start_run(run_name="simple_predict"):
@@ -13,3 +12,5 @@ def train_and_log(x: float):
         mlflow.log_metric("output_y", y)
 
         return y
+    
+    
